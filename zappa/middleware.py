@@ -45,11 +45,7 @@ class ZappaWSGIMiddleware:
             """
 
             new_headers = [
-                header
-                for header in headers
-                if (
-                    (type(header[0]) != str) or (header[0].lower() != "set-cookie")  # noqa: E721
-                )
+                header for header in headers if ((type(header[0]) != str) or (header[0].lower() != "set-cookie"))  # noqa: E721
             ]
             cookie_headers = [
                 (header[0].lower(), header[1])
